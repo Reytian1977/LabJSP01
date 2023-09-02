@@ -3,19 +3,21 @@ package messervlets;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import mesmodels.EvaluationDbContext;
 
 import java.io.IOException;
 
-@WebServlet(name = "HomeServlet", value = "/HomeServlet")
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "ListeServlet", value = "/ListeServlet")
+public class ListeServlet extends HttpServlet {
 
-    private String path = "/PagesJsp/Accueil.jsp";
+    //Propiete
+    private EvaluationDbContext EvaluationDbContext = new EvaluationDbContext();
+    private String path = "/PagesJsp/listeEvaluation.jsp";
 
-    //Methode de redirection
     private void view(String viewname, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listeEvaluation", EvaluationDbContext.getListeEvalutions());
         request.getRequestDispatcher(viewname).forward(request, response);
     }
-
     public void init() {
         // insérer votre code
 
@@ -27,7 +29,6 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         //insérer votre code
         view(path, request, response);
     }
