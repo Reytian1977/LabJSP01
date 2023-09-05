@@ -51,6 +51,14 @@
                 <label for="prenom">Prénom:</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" required>
             </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Telephone:</label>
+                <input type="text" class="form-control" id="telephone" name="telephone" required>
+            </div>
 
             <!-- Date d'évaluation -->
             <div class="form-group">

@@ -28,7 +28,7 @@ public class AjouterServlet extends HttpServlet {
 
         //insérer votre code
         Evaluation e = new Evaluation();
-        e.mapper(request);
+        e = e.mapper(request);
         evaluationDbContext.Ajouter(e);
         request.getRequestDispatcher("/HomeServlet").forward(request, response);
     }

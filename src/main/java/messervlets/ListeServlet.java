@@ -12,7 +12,7 @@ public class ListeServlet extends HttpServlet {
 
     //Propiete
     private EvaluationDbContext EvaluationDbContext = new EvaluationDbContext();
-    private String path = "/PagesJsp/listeEvaluation.jsp";
+    private String path = "/PagesJsp/listeEvaluations.jsp";
 
     private void view(String viewname, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("listeEvaluation", EvaluationDbContext.getListeEvalutions());

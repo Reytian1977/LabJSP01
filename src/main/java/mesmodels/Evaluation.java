@@ -129,7 +129,7 @@ public class Evaluation {
         int numero = Integer.parseInt(request.getParameter("numero"));
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
-        String courriel = request.getParameter("courriel");
+        String courriel = request.getParameter("email");
         String telephone = request.getParameter("telephone");
         char sexe = request.getParameter("sexe").charAt(0);
         String note = request.getParameter("note");
