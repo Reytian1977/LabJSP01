@@ -30,7 +30,7 @@ public class AjouterServlet extends HttpServlet {
         Evaluation e = new Evaluation();
         e.mapper(request);
         evaluationDbContext.Ajouter(e);
-        request.getRequestDispatcher(request.getContextPath()+"/HomeServlet").forward(request, response);
+        request.getRequestDispatcher("/HomeServlet").forward(request, response);
     }
 
 

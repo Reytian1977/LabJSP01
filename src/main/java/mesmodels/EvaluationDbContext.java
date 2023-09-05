@@ -1,10 +1,11 @@
 package mesmodels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EvaluationDbContext implements IEvaluationContext {
     //liste
-    private static List<Evaluation> listeEvalutions;
+    private static List<Evaluation> listeEvalutions = new ArrayList<>();
     public static List<Evaluation> getListeEvalutions() {
         return listeEvalutions;
     }
