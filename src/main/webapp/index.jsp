@@ -3,10 +3,16 @@
 <html>
 <head>
   <title>JSP - Hello World</title>
+  <link rel="stylesheet" href="res/css/style.css">
 </head>
 <body>
 <h1><%= "Hello World!" %></h1>
 <br/>
 <a href="<%=request.getContextPath()+"/HomeServlet"%>">Hello Servlet</a>
+
+  <div class="martin">
+
+  </div>
+
 </body>
 </html>

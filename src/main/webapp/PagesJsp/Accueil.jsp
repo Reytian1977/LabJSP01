@@ -36,6 +36,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<%=request.getContextPath()%>/PagesJsp/contact.jsp">Nous contacter</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="<%=request.getContextPath()%>/index.jsp">Index</a>
+        </li>
         </ul>
     </nav>
 
