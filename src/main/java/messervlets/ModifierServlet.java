@@ -23,14 +23,14 @@ public class ModifierServlet extends HttpServlet {
         Evaluation e = EvaluationDbContext.rechercher(Integer.parseInt(request.getParameter("numero")));
         request.setAttribute("evaluation", e);
 
-        RequestDispatcher dis = request.getRequestDispatcher("modifierEvaluation.jsp");
+        RequestDispatcher dis = request.getRequestDispatcher("/PagesJsp/modifierEvaluation.jsp");
         dis.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //insérer votre code
         Evaluation e = new Evaluation();
-        e.mapper(request);
+        e = e.mapper(request);
         EvaluationDbContext.Modifier(e);
 
         response.sendRedirect(request.getContextPath()+"/ListeServlet");

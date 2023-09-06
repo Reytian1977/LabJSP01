@@ -7,8 +7,8 @@ import java.util.List;
 
 public class EvaluationDbContext implements IEvaluationContext {
     //liste
-    private static List<Evaluation> listeEvalutions = new ArrayList<>();
-    /*{
+    private static List<Evaluation> listeEvalutions = new ArrayList<>()
+    {
         {
             add(new Evaluation(1, "Nom1", "Prenom1", "example1@mail.com", "0123456781", 'M', "Note1", new GregorianCalendar(2023, Calendar.SEPTEMBER, 1), "Commentaire 1"));
             add(new Evaluation(2, "Nom2", "Prenom2", "example2@mail.com", "0123456782", 'F', "Note2", new GregorianCalendar(2023, Calendar.SEPTEMBER, 2), "Commentaire 2"));
@@ -21,7 +21,7 @@ public class EvaluationDbContext implements IEvaluationContext {
             add(new Evaluation(9, "Nom9", "Prenom9", "example9@mail.com", "0123456789", 'M', "Note9", new GregorianCalendar(2023, Calendar.SEPTEMBER, 9), "Commentaire 9"));
             add(new Evaluation(10, "Nom10", "Prenom10", "example10@mail.com", "0123456790", 'F', "Note10", new GregorianCalendar(2023, Calendar.SEPTEMBER, 10), "Commentaire 10"));
         }
-    };*/
+    };
 
     public static List<Evaluation> getListeEvalutions() {
         return listeEvalutions;

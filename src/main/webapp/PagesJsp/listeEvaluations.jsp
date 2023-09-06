@@ -55,6 +55,7 @@
                 <th>Note</th>
                 <th>Date Evaluation</th>
                 <th>Commentaires</th>
+                <th>Actions</th>
             </tr>
             <% for (Evaluation e: evaluations) { %>
             <tr>
@@ -72,6 +73,13 @@
                 %>
                 <%=formateDate%></td>
                 <td><%= e.getCommentaires() %></td>
+                <td>
+                    <!-- Modifier Button -->
+                    <a href="<%=request.getContextPath()%>/ModifierServlet?numero=<%=e.getNumero()%>" class="btn btn-primary">Modifier</a>
+
+                    <!-- Supprimer Button -->
+                    <a href="<%=request.getContextPath()%>/SupprimerServlet?numero=<%=e.getNumero()%>" class="btn btn-danger" onclick="return confirm('Voulez-vous vraiment le supprimer ?');">Supprimer</a>
+                </td>
             </tr>
             <% } %>
         </table>
