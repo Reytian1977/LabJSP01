@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="mesmodels.Evaluation" %>
 <%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -17,60 +19,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+<!-- Variables -->
+<c:url var="UrlAccueil" value="/HomeServlet"/>
+<c:url var="UrlAjouter" value="/AjouterServlet"/>
+<c:url var="UrlListe" value="/ListeServlet"/>
+<c:url var="UrlContacter" value="/PagesJsp/contact.jsp"/>
+<c:url var="UrlModifier" value="/ModifierServlet"/>
+<c:set var="evaluation" value="${requestScope.evaluation}"/>
+<fmt:formatDate value="${evaluation.dateEvaluation.time}" pattern="dd-MM-yyyy" var="dateEvaluation" />
 
 <div class="container mt-5">
     <h2>Modifier l'Évaluation</h2>
 
-    <%
-        Evaluation evaluation = (Evaluation) request.getAttribute("evaluation");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String formateDate = dateFormat.format(evaluation.getDateEvaluation().getTime());
-    %>
-
-    <form action="<%=request.getContextPath()%>/ModifierServlet" method="post">
-        <input type="hidden" name="numero" value="<%= evaluation.getNumero() %>">
+    <form action="${UrlModifier}" method="post">
+        <input type="hidden" name="numero" value="${evaluation.numero}">
 
         <div class="mb-3">
             <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom" name="nom" value="<%= evaluation.getNom() %>">
+            <input type="text" class="form-control" id="nom" name="nom" value="${evaluation.nom}">
         </div>
 
         <div class="mb-3">
             <label for="prenom" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="prenom" name="prenom" value="<%= evaluation.getPrenom() %>">
+            <input type="text" class="form-control" id="prenom" name="prenom" value="${evaluation.prenom}">
         </div>
 
         <div class="mb-3">
             <label for="courriel" class="form-label">Courriel</label>
-            <input type="email" class="form-control" id="courriel" name="email" value="<%= evaluation.getCourriel() %>">
+            <input type="email" class="form-control" id="courriel" name="email" value="${evaluation.courriel}">
         </div>
 
         <div class="mb-3">
             <label for="telephone" class="form-label">Téléphone</label>
-            <input type="text" class="form-control" id="telephone" name="telephone" value="<%= evaluation.getTelephone() %>">
+            <input type="text" class="form-control" id="telephone" name="telephone" value="${evaluation.telephone}">
         </div>
 
         <div class="mb-3">
             <label for="sexe" class="form-label">Sexe</label>
             <select class="form-control" id="sexe" name="sexe">
-                <option value="M" <%= evaluation.getSexe() == 'M' ? "selected" : "" %>>Masculin</option>
-                <option value="F" <%= evaluation.getSexe() == 'F' ? "selected" : "" %>>Féminin</option>
+                <option value="M" >Masculin</option>
+                <option value="F" >Féminin</option>
             </select>
         </div>
 
         <div class="mb-3">
             <label for="note" class="form-label">Note</label>
-            <textarea class="form-control" id="note" name="note"><%= evaluation.getNote() %></textarea>
+            <textarea class="form-control" id="note" name="note">${evaluation.note}</textarea>
         </div>
 
         <div class="mb-3">
             <label for="dateEvaluation" class="form-label">Date d'Évaluation</label>
-            <input type="text" class="form-control" id="dateEvaluation" name="dateEvaluation" value="<%= formateDate %>">
+            <input type="text" class="form-control" id="dateEvaluation" name="dateEvaluation" value="${dateEvaluation}">
         </div>
 
         <div class="mb-3">
             <label for="commentaire" class="form-label">Commentaires</label>
-            <textarea class="form-control" id="commentaire" name="comentaire"><%= evaluation.getCommentaires() %></textarea>
+            <textarea class="form-control" id="commentaire" name="comentaire">${evaluation.commentaires}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>

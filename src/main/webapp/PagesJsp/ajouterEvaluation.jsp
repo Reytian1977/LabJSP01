@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -15,28 +16,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+<!-- Variables -->
+<c:url var="UrlAccueil" value="/HomeServlet"/>
+<c:url var="UrlAjouter" value="/AjouterServlet"/>
+<c:url var="UrlListe" value="/ListeServlet"/>
+<c:url var="UrlContacter" value="/PagesJsp/contact.jsp"/>
 
     <!-- Menu -->
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href=<%=request.getContextPath()+"/HomeServlet"%>>Accueil</a>
+                <a class="nav-link" href="${UrlAccueil}">Accueil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=<%=request.getContextPath()+"/AjouterServlet"%>>Ajouter évaluation</a>
+                <a class="nav-link" href="${UrlAjouter}">Ajouter évaluation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=<%=request.getContextPath()+"/ListeServlet"%>>Liste évaluations</a>
+                <a class="nav-link" href=${UrlListe}>Liste évaluations</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<%=request.getContextPath()%>/PagesJsp/contact.jsp">Nous contacter</a>
+                <a class="nav-link" href="${UrlContacter}">Nous contacter</a>
             </li>
         </ul>
     </nav>
 
     <div class="container mt-4">
         <h2>Ajouter une évaluation</h2>
-        <form  action="<%=request.getContextPath()+"/AjouterServlet"%>" method="post">
+        <form  action="${UrlAjouter}" method="post">
 
             <!-- Numéro, Nom, Prénom -->
             <div class="form-group">
@@ -98,7 +104,7 @@
 
             <!-- Boutons -->
             <button type="submit" class="btn btn-primary">Envoyer</button>
-            <button type="button" class="btn btn-danger" onclick="confirmerAnnulation()">Annuler</button>
+            <a href="${UrlAccueil}" class="btn btn-danger" onclick="return confirm('Voulez-vous vraiment le annuler ?');">Annuler</a>
 
         </form>
     </div>
