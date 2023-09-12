@@ -30,7 +30,7 @@ public class ModifierServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //insérer votre code
         Evaluation e = new Evaluation();
-        e = e.mapper(request);
+        e = Evaluation.mapper(request);
         EvaluationDbContext.Modifier(e);
 
         response.sendRedirect(request.getContextPath()+"/ListeServlet");

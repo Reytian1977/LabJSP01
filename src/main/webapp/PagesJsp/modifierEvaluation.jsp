@@ -69,7 +69,7 @@
 
         <div class="mb-3">
             <label for="dateEvaluation" class="form-label">Date d'Évaluation</label>
-            <input type="text" class="form-control" id="dateEvaluation" name="dateEvaluation" value="${dateEvaluation}">
+            <input type="date" class="form-control" id="dateEvaluation" name="dateEvaluation" value="${dateEvaluation}">
         </div>
 
         <div class="mb-3">

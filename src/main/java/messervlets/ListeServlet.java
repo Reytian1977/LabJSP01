@@ -15,7 +15,7 @@ public class ListeServlet extends HttpServlet {
     private String path = "/PagesJsp/listeEvaluations.jsp";
 
     private void view(String viewname, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("listeEvaluation", EvaluationDbContext.getListeEvalutions());
+
         request.getRequestDispatcher(viewname).forward(request, response);
     }
     public void init() {
@@ -25,6 +25,7 @@ public class ListeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // insérer votre code
+        request.setAttribute("listeEvaluation", EvaluationDbContext.getListeEvalutions());
         view(path, request, response);
     }
 
